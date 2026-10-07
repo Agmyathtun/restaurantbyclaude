@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>European Restaurant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Ledger&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+/* Figma asset URLs expire ~7 days after export. Replace the three vars below
+   and the <img src> values with local files when you have them. */
+:root {
+  --red: #a21c10;
+  --grey: #d9d9d9;
+  --hero-img: url("https://www.figma.com/api/mcp/asset/8c708a66-52bc-46d7-8211-1ff94e74b8cd.png");
+  --services-img: url("https://www.figma.com/api/mcp/asset/a8c6857c-3222-4283-bc11-d9e2da287654.png");
+  --pad: clamp(16px, 9.375vw, 135px); /* 135px at 1440 */
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: "Lato", sans-serif; color: var(--red); background: #fff; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, p { margin: 0; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #000; outline-offset: 2px; }
+
+/* header */
+.site-header { display: flex; align-items: center; gap: 30px; padding: 30px var(--pad); min-height: 232px; }
+.site-header img { width: 170px; height: 172px; object-fit: cover; flex: none; }
+.site-header .brand { font-family: "Ledger", serif; font-weight: 400; font-size: clamp(2rem, 4.45vw, 64px); text-transform: capitalize; color: var(--red); line-height: 1.2; }
+
+/* nav */
+.nav { background: var(--red); min-height: 60px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px clamp(20px, 4.4vw, 64px); padding: 10px 16px; }
+.nav a { color: #fff; font-weight: 700; font-size: 18px; text-transform: uppercase; text-decoration: none; padding: 4px 2px; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
+
+/* hero */
+.hero { min-height: 700px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 40px 16px 68px;
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), var(--hero-img) center/cover no-repeat; }
+.hero h1 { font-weight: 300; font-size: clamp(1.5rem, 3.34vw, 48px); text-transform: capitalize; }
+.hero h1 strong { display: block; font-weight: 700; font-size: clamp(2.2rem, 6.95vw, 100px); }
+.hero p { margin-top: 30px; font-weight: 300; font-size: clamp(1rem, 2.78vw, 40px); letter-spacing: .3em; text-transform: capitalize; }
+
+/* section heading */
+.sec-title { font-weight: 300; font-size: clamp(1.75rem, 3.47vw, 50px); text-transform: capitalize; text-align: center; line-height: 1.2; }
+
+/* menu */
+.menu { padding: 80px 16px 0; }
+.menu-group { max-width: 1170px; margin: 0 auto 80px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 270px)); gap: 30px; justify-content: center; margin-top: 60px; }
+.card { background: var(--grey); display: flex; flex-direction: column; min-height: 384px; text-align: center; }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.card-body { flex: 1; padding: 30px 8px 0; }
+.card h3 { font-weight: 700; font-size: 35px; line-height: 24px; text-transform: capitalize; }
+.card p { margin-top: 31px; font-size: 18px; line-height: 25px; }
+.card button { height: 44px; border: 0; background: var(--red); color: #fff; font: 400 13px/1 "Open Sans", sans-serif; text-transform: uppercase; cursor: pointer; }
+.card button:hover { background: #7f150c; }
+
+/* services */
+.services { min-height: 900px; padding: 80px 16px 70px; background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), var(--services-img) center/cover no-repeat; }
+.pill { background: #fff; border: 5px solid var(--red); border-radius: 45px; }
+.services .pill { width: min(437px, 100%); height: 95px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-weight: 300; font-size: clamp(1.75rem, 3.47vw, 50px); text-transform: capitalize; }
+.svc-list { list-style: none; margin: 60px auto 0; padding: 0; max-width: 1120px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px 94px; }
+.svc-list li { background: #fff; border: 5px solid var(--red); border-radius: 45px; height: 95px; display: flex; align-items: center; gap: 46px; padding-right: 20px; overflow: hidden; }
+.svc-list .num { flex: none; width: 85px; height: 85px; margin-left: -5px; border: 5px solid var(--red); border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 35px; }
+.svc-list .label { font-weight: 700; font-size: 35px; line-height: 1.1; text-transform: capitalize; }
+
+/* about */
+.about { padding: 80px var(--pad) 80px; }
+.about .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 44px 29px; margin-top: 60px; max-width: 1170px; margin-inline: auto; }
+.about h3 { font-weight: 700; font-size: 35px; line-height: 24px; text-transform: capitalize; margin-bottom: 30px; }
+.about p { font-size: 18px; line-height: 25px; }
+
+/* contact */
+.contact { background: var(--red); color: #fff; padding: 60px var(--pad) 29px; }
+.contact .wrap { display: grid; grid-template-columns: minmax(0, 364px) minmax(0, 569px); gap: 60px 138px; justify-content: center; max-width: 1170px; margin: 0 auto; }
+.contact h2 { font-weight: 700; font-size: 35px; line-height: 24px; text-transform: capitalize; }
+.info { text-align: center; }
+.socials { display: flex; justify-content: center; gap: 41px; margin: 30px 0 30px; }
+.socials a { width: 50px; height: 50px; border: 3px solid #fff; border-radius: 50%; display: block; }
+.info address { font-style: normal; font-size: 18px; line-height: 1.25; margin-top: 30px; }
+.info h2 + address, .info .hours { margin-top: 30px; }
+.info .hours { font-size: 18px; line-height: 30px; }
+.info .block + .block { margin-top: 40px; }
+form label { display: block; font-size: 18px; line-height: 25px; margin: 0 0 10px; }
+form .field { margin-bottom: 30px; }
+form input, form textarea { width: 100%; border: 0; border-radius: 0; background: #fff; color: #333; font: 400 18px/25px "Lato", sans-serif; padding: 17px 20px; }
+form input { height: 60px; }
+form textarea { height: 135px; resize: vertical; }
+form ::placeholder { color: #767676; opacity: 1; }
+form button { width: 100%; height: 60px; border: 0; background: #fff; color: var(--red); font: 700 20px/1 "Lato", sans-serif; cursor: pointer; }
+form button:hover { background: var(--grey); }
+
+/* footer */
+footer { background: #1e1e1e; color: #fff; min-height: 200px; padding: 40px var(--pad); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 40px; font-size: 14px; line-height: 24px; }
+
+/* responsive */
+@media (max-width: 1100px) {
+  .svc-list { grid-template-columns: 1fr; max-width: 560px; }
+  .svc-list .label { font-size: 30px; }
+}
+@media (max-width: 900px) {
+  .contact .wrap { grid-template-columns: minmax(0, 569px); }
+  .about .cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .site-header { flex-direction: column; text-align: center; padding-block: 24px; }
+  .site-header img { width: 130px; height: auto; aspect-ratio: 170/172; }
+  .hero p { letter-spacing: .15em; }
+  .svc-list li { gap: 20px; }
+  .svc-list .label { font-size: 22px; }
+  footer { justify-content: center; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header id="home">
+  <div class="site-header">
+    <img src="https://www.figma.com/api/mcp/asset/5f0f5297-3fed-4b71-8e39-0f144cb22cb9.png" alt="Restaurant logo">
+    <p class="brand">European restaurant</p>
+  </div>
+  <nav class="nav" aria-label="Main">
+    <a href="#home">Home</a>
+    <a href="#menu">Menus</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contacts</a>
+  </nav>
+  <section class="hero">
+    <h1>Welcome to <strong>European restaurant</strong></h1>
+    <p>We are serving delicious and fresh foods</p>
+  </section>
+</header>
+
+<main>
+  <section class="menu" id="menu">
+    <div class="menu-group">
+      <h2 class="sec-title">our menu lists for meats and vegetables</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/d7a2115a-0e28-44d3-ad5f-778a7d1e198a.png" alt="Pork" loading="lazy">
+          <div class="card-body"><h3>Pork</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/662e89b4-b123-41fb-b8e8-d798293b1012.png" alt="Beef" loading="lazy">
+          <div class="card-body"><h3>Beef</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/5dc8dea1-7068-4c34-9494-03805ba92683.png" alt="Mutton" loading="lazy">
+          <div class="card-body"><h3>Mutton</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/ecfc29d8-6c63-4e7c-b0e1-d90f336eccd7.png" alt="Chicken" loading="lazy">
+          <div class="card-body"><h3>Chicken</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/9bd26889-ca44-4fe4-bfdd-5f0004229c9e.png" alt="Ratatouille" loading="lazy">
+          <div class="card-body"><h3>Ratatouille</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/13bc3fb9-ebef-46c8-a1de-45b8fa78b176.png" alt="Gado Gado" loading="lazy">
+          <div class="card-body"><h3>Gado Gado</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/e7ed8e23-fa96-473d-9fb5-0da178503c1e.png" alt="Hummus" loading="lazy">
+          <div class="card-body"><h3>Hummus</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/5bb3fd33-cb9f-47bb-9648-0469a129f3c3.png" alt="Caprese Salad" loading="lazy">
+          <div class="card-body"><h3>Caprese Salad</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+      </div>
+    </div>
+    <div class="menu-group">
+      <h2 class="sec-title">our menu lists for Dessert and drinks</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/eac4632c-44e9-4174-9347-21ddb3549710.png" alt="Tiramisu" loading="lazy">
+          <div class="card-body"><h3>Tiramisu</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/c64c4d89-7b3c-4571-a450-07413c456c12.png" alt="Panna Cotta" loading="lazy">
+          <div class="card-body"><h3>Panna Cotta</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/cf0f26a8-ea6e-4105-904b-0e90de6a89c6.png" alt="Apple Pie" loading="lazy">
+          <div class="card-body"><h3>Apple Pie</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/284afcdb-dbc3-47eb-b7c4-7755e7719c1b.png" alt="Baklava" loading="lazy">
+          <div class="card-body"><h3>Baklava</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/80c9b83d-7e40-48a5-81fb-4c03df30c626.png" alt="Iced Coffee" loading="lazy">
+          <div class="card-body"><h3>Iced Coffee</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/858ceb28-db94-4c17-bf4c-c1bbecb715c2.png" alt="Lemonade" loading="lazy">
+          <div class="card-body"><h3>Lemonade</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/4ff6a838-c3b9-492a-8a52-4655c4c4bdd9.png" alt="Mango Smoothie" loading="lazy">
+          <div class="card-body"><h3>Mango Smoothie</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+        <article class="card">
+          <img src="https://www.figma.com/api/mcp/asset/4e3cfbc7-5d1c-4b59-9bbc-eedbc6ffe210.png" alt="Hot Chocolate" loading="lazy">
+          <div class="card-body"><h3>Hot Chocolate</h3><p>Price - $120</p></div>
+          <button type="button">Click to order</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2 class="pill">Our services</h2>
+    <ul class="svc-list">
+        <li><span class="num">1</span><span class="label">table service</span></li>
+        <li><span class="num">5</span><span class="label">buffet service</span></li>
+        <li><span class="num">2</span><span class="label">Assisted Service</span></li>
+        <li><span class="num">7</span><span class="label">Cafeteria service</span></li>
+        <li><span class="num">3</span><span class="label">self service</span></li>
+        <li><span class="num">8</span><span class="label">food court service</span></li>
+        <li><span class="num">4</span><span class="label">single point service</span></li>
+        <li><span class="num">9</span><span class="label">Room service</span></li>
+        <li><span class="num">5</span><span class="label">special service</span></li>
+        <li><span class="num">10</span><span class="label">home delivery</span></li>
+    </ul>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="sec-title">About Us</h2>
+    <div class="cols">
+      <div><h3>History</h3><p>Lorem ipsum dolor sit amet consectetur. Vel mauris fringilla vitae tellus. Sit facilisis odio sagittis tempor. Phasellus nisl eget morbi eget vitae eu amet. Scelerisque interdum tincidunt praesent id dignissim eu imperdiet venenatis risus.</p></div>
+      <div><h3>Our Vision</h3><p>Lorem ipsum dolor sit amet consectetur. Vel mauris fringilla vitae tellus. Sit facilisis odio sagittis tempor. Phasellus nisl eget morbi eget vitae eu amet. Scelerisque interdum tincidunt praesent id dignissim eu imperdiet venenatis risus.</p></div>
+      <div><h3>Our Mission</h3><p>Lorem ipsum dolor sit amet consectetur. Vel mauris fringilla vitae tellus. Sit facilisis odio sagittis tempor. Phasellus nisl eget morbi eget vitae eu amet. Scelerisque interdum tincidunt praesent id dignissim eu imperdiet venenatis risus.</p></div>
+      <div><h3>Our Purpose</h3><p>Lorem ipsum dolor sit amet consectetur. Vel mauris fringilla vitae tellus. Sit facilisis odio sagittis tempor. Phasellus nisl eget morbi eget vitae eu amet. Scelerisque interdum tincidunt praesent id dignissim eu imperdiet venenatis risus.</p></div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="info">
+      <div class="block">
+        <h2>Contact Us On</h2>
+        <!-- Icon art not exported (see notes): swap these for your four social icons -->
+        <div class="socials">
+          <a href="#" aria-label="Social link 1"></a>
+          <a href="#" aria-label="Social link 2"></a>
+          <a href="#" aria-label="Social link 3"></a>
+          <a href="#" aria-label="Social link 4"></a>
+        </div>
+      </div>
+      <div class="block">
+        <h2>Location</h2>
+        <address>No-165, (b) Quarter, Tamwe Township, Yangon</address>
+      </div>
+      <div class="block">
+        <h2>Opening Hours</h2>
+        <div class="hours">
+          <div>Sunday to Monday Closed</div>
+          <div>Tuesday 10:00am to 7:00pm</div>
+          <div>Wednesday 10:00am to 7:00pm</div>
+          <div>Thursday 10:00am to 7:00pm</div>
+          <div>Friday 10:00am to 8:00pm</div>
+          <div>Saturday 10:00am to 8:00pm</div>
+        </div>
+      </div>
+    </div>
+    <form id="contact-form" novalidate>
+      <div class="field"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="Enter Your Name" autocomplete="name"></div>
+      <div class="field"><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="Enter Your Email" autocomplete="email"></div>
+      <div class="field"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Enter Your Message"></textarea></div>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span>Copyright &copy; 2023. European Restaurant. All rights reserved.</span>
+  <span>Made with love by creativo 27 design studio.</span>
+</footer>
+
+<script>
+  // Placeholder: the design has no backend. Wire this to your form endpoint.
+  document.getElementById("contact-form").addEventListener("submit", function (e) { e.preventDefault(); });
+</script>
+</body>
+</html>
